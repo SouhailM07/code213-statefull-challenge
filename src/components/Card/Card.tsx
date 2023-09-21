@@ -1,7 +1,13 @@
 // hooks
 import { useState, useId, useRef } from "react";
+// check
+interface Props {
+  img: string;
+  name: string;
+  content: string;
+}
 
-export default function Card({ img, name, content }) {
+export default function Card({ img, name, content }: Props) {
   // toggle window
   let [activate, setActivate] = useState(false);
   // enable input to edit
