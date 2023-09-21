@@ -1,10 +1,13 @@
 import "./style/input.css";
 import "./App.css";
-//
+// components
+import { Container } from "./components";
 function App() {
   return (
     <>
-      <div>sb</div>
+      <div>
+        <Container />
+      </div>
     </>
   );
 }
