@@ -40,7 +40,15 @@ export default function Card({ img, name, content }) {
           <div className="info w-[53%] flex flex-col justify-around ">
             <h3 className="text-[2rem] capitalize">
               {edit ? (
-                <input ref={inputNameRef} type="text" className="inputName" />
+                <textarea
+                  ref={inputNameRef}
+                  className="inputName h-[4rem] resize-none overflow-hidden"
+                  onChange={() => {
+                    setCharacter((character = inputNameRef.current.value));
+                  }}
+                >
+                  {character}
+                </textarea>
               ) : (
                 character
               )}
@@ -56,7 +64,7 @@ export default function Card({ img, name, content }) {
                     ) as HTMLTextAreaElement;
                     setInfo((info = textArea?.value));
                   }}
-                  className="h-[8rem] w-[100%] overflow-hidden resize-none"
+                  className="h-[8rem] border-2 border-black w-[100%] overflow-hidden resize-none"
                 >
                   {info}
                 </textarea>
@@ -69,7 +77,6 @@ export default function Card({ img, name, content }) {
                 className="btn bg-red-500 "
                 onClick={() => {
                   let selectedCard = document.getElementById(cardId);
-                  alert(selectedCard?.id);
                   selectedCard?.remove();
                 }}
               >
@@ -79,7 +86,6 @@ export default function Card({ img, name, content }) {
                 className="btn bg-blue-600 "
                 onClick={() => {
                   setEdit(!edit);
-                  setCharacter((character = inputNameRef.current.value));
                 }}
               >
                 Edit
@@ -91,9 +97,3 @@ export default function Card({ img, name, content }) {
     </>
   );
 }
-
-/*
- *blue print
- -----------
-
- */
